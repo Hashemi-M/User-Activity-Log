@@ -88,13 +88,14 @@ $(function()
     // 1000 milliseconds = 1 second}
   }
 
+  // function is called when user is considered to be inactive
   function inactive(event) {
     console.log('InActive');
     curInactive = event.timeStamp + timeToInactivity;
   }
 
   
-
+  // function to get value of cookie by name
   function getCookie(input) {
     var cookies = document.cookie.split(';');
     for (var i = 0; i < cookies.length; i++) {
