@@ -69,10 +69,32 @@ $(function()
 
   // when window is closed or user is redirected
   window.onbeforeunload = function(event) {
-    // calcualte total active time 
+    // calcualte total active time
     var activeTime = (event.timeStamp - start) - totalInactive;
     var totalTime = (event.timeStamp - start)
-    // $.post('/collect-user-time/ajax-backend.php', {time: time});
+    // Get toadys date
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    // Json object to be sent to backend
+    var postData = {"username": userEmail, "timeActive": activeTime, "date": date};
+    var dataString = JSON.stringify(postData);
+    $.ajax({
+      type: "POST",
+      //dataType: "json",
+      url: "activityLog.php",
+      data: {userData:dataString},
+      success: function(data){
+          console.log('success');
+      },
+      error: function(xhr,textStatus,err)
+      {
+          console.log("readyState: " + xhr.readyState);
+          console.log("responseText: "+ xhr.responseText);
+          console.log("status: " + xhr.status);
+          console.log("text status: " + textStatus);
+          console.log("error: " + err);
+      }
+    })
     console.log(activeTime);
     console.log(totalTime);
     return "Dont Leave!";
