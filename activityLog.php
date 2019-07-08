@@ -1,11 +1,18 @@
 <?php
+
+    /*
+    This code user google-api-php-client v2.2.3 which is a a PHP client library for accessing Google APIs.
+    The link to download this libary is : https://github.com/googleapis/google-api-php-client/releases/tag/v2.2.3
+    */
+
+    // calling the google-api-php-client from relative path 
     require_once ("../google-api/vendor/autoload.php");
 
-
+    // Reciving Ajax post request
     if(isset($_POST['userData'])){
         $jsonObj = json_decode($_POST['userData']);
         
-        //
+        //Conterting time in millisec to mins
         $timeInMins = ($jsonObj->timeActive)/1000/60;
 
 
