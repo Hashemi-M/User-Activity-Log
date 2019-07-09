@@ -81,7 +81,7 @@ $(function()
     $.ajax({
       type: "POST",
       //dataType: "json",
-      url: "activityLog.php",
+      url: "sendtoSleekDB.php",
       data: {userData:dataString},
       success: function(data){
           console.log('success');

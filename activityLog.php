@@ -1,7 +1,7 @@
 <?php
 
     /*
-    This code user google-api-php-client v2.2.3 which is a a PHP client library for accessing Google APIs.
+    This code uses google-api-php-client v2.2.3 which is a a PHP client library for accessing Google APIs.
     The link to download this libary is : https://github.com/googleapis/google-api-php-client/releases/tag/v2.2.3
     */
 
